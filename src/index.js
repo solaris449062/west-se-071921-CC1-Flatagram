@@ -19,13 +19,14 @@ fetch(fetchImagesURL)
     listenLikeEvent();
     listenPostEvent();
     displayPostContent();
-    loadPreviousComments();
+
 });
 
 fetch(fetchCommentURL)
 .then(response => response.json()) // json() is a function! remember to put ()
 .then(jsonObject => {
     saveObjectArray(commentObjectArray, jsonObject)
+    loadPrevious();
 });
 
 function saveObjectArray(saveTarget, jsonObjectFetched) {
@@ -38,13 +39,16 @@ console.log("image object array is fetched:")
 console.log(imageObjectArray);
 console.log("comment object array is fetched:")
 console.log(commentObjectArray);
+console.log(commentObjectArray[1]);
+
 
 function displayPostContent() {
     imageTitleElement.innerText = imageObjectArray[0].title;
     imageContentElement.src = imageObjectArray[0].image;
 }
 
-function loadPreviousComments() {
+function loadPrevious() {
+    likeCount = imageObjectArray[0].likes;
     for (let i = 0; i < commentObjectArray.length; i++) {
         let newPost = document.createElement("li");
         newPost.innerText = commentObjectArray[i].content;
