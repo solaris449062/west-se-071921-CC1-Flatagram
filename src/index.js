@@ -35,11 +35,11 @@ function saveObjectArray(saveTarget, jsonObjectFetched) {
     }
 }
 
-console.log("image object array is fetched:")
-console.log(imageObjectArray);
-console.log("comment object array is fetched:")
-console.log(commentObjectArray);
-console.log(commentObjectArray[1]);
+// console.log("image object array is fetched:")
+// console.log(imageObjectArray);
+// console.log("comment object array is fetched:")
+// console.log(commentObjectArray);
+// console.log(commentObjectArray[1]);
 
 
 function displayPostContent() {
